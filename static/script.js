@@ -1,11 +1,6 @@
 const video = document.getElementById("camera");
 const startCamera = document.getElementById("startCamera");
 const detectMood = document.getElementById("detectMood");
-const moodOutput = document.getElementById("mood");
-const songOutput = document.getElementById("song");
-const resultPanel = document.querySelector(".result");
-const songPanel = document.querySelector(".song");
-const musicPlayer = document.getElementById("musicPlayer");
 const modelUrl = "https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model/";
 let cameraReady = false;
 let detectorReady = false;
@@ -25,14 +20,35 @@ const moodSongs = {
         audio: "/static/audio/angry.mp3"
     },
     romantic: {
-        title: "😴TIREDDDD",
-        audio: "/static/audio/tired.mp3"
+        title: "❤️ ROMANTIC",
+        audio: "/static/audio/romantic.mp3"
     },
     tired: {
         title: "😴TIREDDDD",
         audio: "/static/audio/tired.mp3"
     }
 };
+
+function classifyMood(expressions) {
+    const strongestExpression = Object.entries(expressions)
+        .sort(([, scoreA], [, scoreB]) => scoreB - scoreA)[0][0];
+
+    switch (strongestExpression) {
+        case "angry":
+            return "angry";
+        case "sad":
+            return "sad";
+        case "happy":
+        case "surprised":
+            return "happy";
+        case "fearful":
+        case "disgusted":
+            return "romantic";
+        case "neutral":
+        default:
+            return "tired";
+    }
+}
 
 detectMood.disabled = true;
 
@@ -86,7 +102,7 @@ startCamera.addEventListener("click", async () => {
         if (detectorReady) {
             detectMood.disabled = false;
         }
-        startCamera.textContent = "Camera Ready";
+        startCamera.hidden = true;
 
     } catch (error) {
         alert("Camera access denied or unavailable.");
@@ -131,38 +147,7 @@ detectMood.addEventListener("click", async () => {
         return;
     }
 
-    const expressions = detection.expressions;
-    const detectedMood = expressions.happy >= 0.55
-        ? "happy"
-        : expressions.sad >= 0.45
-            ? "sad"
-            : expressions.angry >= 0.45
-                ? "angry"
-                : expressions.disgusted >= 0.35 || expressions.fearful >= 0.35
-                    ? "tired"
-                    : "romantic";
-    const recommendation = moodSongs[detectedMood];
-
-    moodOutput.textContent = detectedMood;
-    songOutput.textContent = recommendation.title;
-    musicPlayer.src = recommendation.audio;
-    musicPlayer.load();
-    musicPlayer.play().catch(() => {
-        songOutput.textContent = `${recommendation.title} - press play to start`;
-    });
-
-    resultPanel.hidden = false;
-    songPanel.hidden = false;
-    resultPanel.classList.remove("is-visible");
-
-    requestAnimationFrame(() => {
-        resultPanel.classList.add("is-visible");
-    });
-
-    detectMood.disabled = false;
-    detectMood.textContent = "Detect Mood Again";
-});
-
-musicPlayer.addEventListener("error", () => {
-    songOutput.textContent = "MP3 file missing: add the matching file to static/audio/";
+    const detectedMood = classifyMood(detection.expressions);
+    video.srcObject.getTracks().forEach((track) => track.stop());
+    window.location.href = `/result?mood=${encodeURIComponent(detectedMood)}`;
 });

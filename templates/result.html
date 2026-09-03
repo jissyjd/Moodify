@@ -16,17 +16,20 @@
 
     <main class="container">
         <h1>🎵 SOULSONIC 🎵</h1>
-        <p class="subtitle">Here is your wonderfully wrong result!</p>
+        <p class="subtitle">Your mood has chosen a song.</p>
 
         <section class="result" aria-labelledby="mood-title">
             <h2 id="mood-title">Detected mood</h2>
-            <p id="mood">Ready for detection</p>
+            <p id="mood">{{ mood }}</p>
         </section>
 
         <section class="song" aria-labelledby="song-title">
-            <h2 id="song-title">Song for you 🫴</h2>
-            <p id="song">No song selected</p>
-            <audio id="musicPlayer" controls>
+            <h2 id="song-title">🎶 Song for your mood</h2>
+            <p id="song">{{ song }}</p>
+            <audio id="musicPlayer" controls autoplay preload="auto">
+                {% if audio %}
+                <source src="{{ audio }}" type="audio/mpeg">
+                {% endif %}
                 Your browser does not support audio.
             </audio>
         </section>

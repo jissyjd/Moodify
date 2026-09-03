@@ -318,6 +318,17 @@ h2 {
     margin: 20px 0;
 }
 
+.song label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#musicPlayer {
+    width: min(100%, 560px);
+}
+
 .wrong-message {
     padding: 12px;
     margin: 15px auto;
