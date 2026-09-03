@@ -27,18 +27,67 @@
             <button id="detectMood" type="button">Detect Mood</button>
         </section>
 
-        <section class="result" aria-labelledby="mood-title">
-            <h2 id="mood-title">Detected mood</h2>
-            <p id="mood">Waiting...</p>
+        <section class="mood-section" aria-labelledby="mood-options-title">
+            <h2 id="mood-options-title">Choose your mood</h2>
+            <form action="/play" method="POST">
+                <div class="mood-buttons">
+                    <button type="submit" name="mood" value="happy">
+                        😄<br>Happy
+                    </button>
+
+                    <button type="submit" name="mood" value="sad">
+                        😭<br>Sad
+                    </button>
+
+                    <button type="submit" name="mood" value="angry">
+                        😡<br>Angry
+                    </button>
+
+                    <button type="submit" name="mood" value="romantic">
+                        ❤️<br>Romantic
+                    </button>
+
+                    <button type="submit" name="mood" value="tired">
+                        😴<br>Tired
+                    </button>
+                </div>
+            </form>
         </section>
 
-        <section class="song" aria-labelledby="song-title">
-            <h2 id="song-title">Song for you !</h2>
-            <p id="song">No song selected</p>
-            <audio id="musicPlayer" controls>
-                Your browser does not support audio.
-            </audio>
-        </section>
+        <section class="result" aria-labelledby="mood-title">
+
+    <div class="popup-icon">🤪</div>
+
+    <h2 id="mood-title">THALATHIRI DECIDED!</h2>
+
+    <p>
+        Detected mood:
+    </p>
+
+    <p id="mood">Waiting...</p>
+
+</section>
+
+
+<section class="song" aria-labelledby="song-title">
+
+    <h2 id="song-title">🎶 Your PERFECTLY WRONG Song</h2>
+
+    <p id="song">No song selected</p>
+
+    <div class="wrong-message">
+        ⚠️ This song is probably VERY wrong 😂
+    </div>
+
+    <audio id="musicPlayer" controls>
+        Your browser does not support audio.
+    </audio>
+
+    <div class="laugh">
+        😂 🎵 😂 🎵 😂
+    </div>
+
+</section>
     </main>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
