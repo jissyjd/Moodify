@@ -17,7 +17,17 @@ MOOD_SONGS = {
 
 st.set_page_config(page_title="Moodify", page_icon="🎵", layout="centered")
 
-st.markdown(f"<style>{STYLE_PATH.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
+base_css = STYLE_PATH.read_text(encoding="utf-8")
+streamlit_css = """
+.stApp { background: linear-gradient(135deg, #171044, #3b176d, #5b21b6, #24105c); color: white; }
+[data-testid="stHeader"] { background: transparent; }
+[data-testid="stToolbar"] { display: none; }
+.block-container { max-width: 900px; padding-top: 3rem; }
+.stButton > button { min-width: 150px; min-height: 50px; border: 1px solid rgba(255,255,255,.24); border-radius: 20px; background: rgba(255,255,255,.15); color: white; font-weight: bold; }
+.stButton > button:hover { color: white; border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.28); }
+"""
+st.markdown(f"<style>{base_css}{streamlit_css}</style>", unsafe_allow_html=True)
+
 st.markdown(
     """
     <div class="container">
@@ -40,12 +50,12 @@ if camera_image:
         audio_path = AUDIO_DIR / filename
         st.markdown(
             f'<section class="result is-visible"><div class="popup-icon">🤪</div>'
-            f'<h2>MOODIFY DECIDED!</h2><p>Detected mood:</p><p id="mood">{mood}</p></section>',
+            f'<h2>MOODIFY DECIDED!</h2><p>Detected mood:</p><p>{mood}</p></section>',
             unsafe_allow_html=True,
         )
         st.markdown(
             f'<section class="song"><h2>🎶 Song for your mood</h2>'
-            f'<p id="song">{title}</p><p>🎧 Playing the song for your detected mood</p></section>',
+            f'<p>{title}</p><p>🎧 Playing the song for your detected mood</p></section>',
             unsafe_allow_html=True,
         )
         if audio_path.exists():
