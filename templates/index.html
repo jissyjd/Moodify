@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>THALATHIRI</title>
+    <title>Thalathiri 🎵</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -13,37 +13,81 @@
 
     <div class="container">
 
-        <h1>🎵 THALATHIRI 🎵</h1>
+        <h1>THALATHIRI 😛</h1>
 
-        <p class="tagline">
-            Your mood. Our wrong music. 😂
+        <p class="subtitle">
+            Perfect song for your perfect mood!
         </p>
 
-        <div class="camera-box">
-            <video id="camera" autoplay></video>
-        </div>
+        <div class="music-icon">🎧</div>
 
-        <button id="startCamera">📷 Start Camera</button>
+        <h2>How are you feeling?</h2>
 
-        <button id="detectMood">🤖 Detect My Mood</button>
+        <form action="/play" method="POST">
+
+            <div class="mood-buttons">
+
+                <button type="submit" name="mood" value="happy">
+                    😄<br>
+                    Happy
+                </button>
+
+                <button type="submit" name="mood" value="sad">
+                    😭<br>
+                    Sad
+                </button>
+
+                <button type="submit" name="mood" value="angry">
+                    😡<br>
+                    Angry
+                </button>
+
+                <button type="submit" name="mood" value="romantic">
+                    ❤️<br>
+                    Romantic
+                </button>
+
+                <button type="submit" name="mood" value="tired">
+                    😴<br>
+                    Tired
+                </button>
+
+            </div>
+
+        </form>
+
+        {% if song %}
 
         <div class="result">
-            <h2>Detected Mood</h2>
-            <p id="mood">Waiting...</p>
+
+            <h2>🎶 Thalathiri has decided...</h2>
+
+            <p>Your mood:</p>
+
+            <h3>{{ selected_mood }}</h3>
+
+            <p>And your completely WRONG song is:</p>
+
+            <div class="song">
+                🎵 {{ song }}
+            </div>
+
+            <p class="warning">
+                ⚠️ Don't blame us. Blame Thalathiri.
+            </p>
+
         </div>
 
-        <div class="song">
-            <h2>❌ Thalathiri's Choice</h2>
-            <p id="song">No song selected</p>
-
-            <audio id="musicPlayer" controls>
-                Your browser does not support audio.
-            </audio>
-        </div>
+        {% endif %}
 
     </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- Random floating decorations -->
+
+    <div class="bubble bubble1">🎵</div>
+    <div class="bubble bubble2">🎧</div>
+    <div class="bubble bubble3">😂</div>
+    <div class="bubble bubble4">🎶</div>
 
 </body>
 </html>
