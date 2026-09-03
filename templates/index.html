@@ -24,37 +24,10 @@
                 <video id="camera" autoplay playsinline></video>
             </div>
             <button id="startCamera" type="button">Start Camera</button>
-            <button id="detectMood" type="button">Detect Mood</button>
+            <button id="detectMood" type="button" disabled>Detect Mood</button>
         </section>
 
-        <section class="mood-section" aria-labelledby="mood-options-title">
-            <h2 id="mood-options-title">Choose your mood</h2>
-            <form action="/play" method="POST">
-                <div class="mood-buttons">
-                    <button type="submit" name="mood" value="happy">
-                        😄<br>Happy
-                    </button>
-
-                    <button type="submit" name="mood" value="sad">
-                        😭<br>Sad
-                    </button>
-
-                    <button type="submit" name="mood" value="angry">
-                        😡<br>Angry
-                    </button>
-
-                    <button type="submit" name="mood" value="romantic">
-                        ❤️<br>Romantic
-                    </button>
-
-                    <button type="submit" name="mood" value="tired">
-                        😴<br>Tired
-                    </button>
-                </div>
-            </form>
-        </section>
-
-        <section class="result" aria-labelledby="mood-title">
+        <section class="result" aria-labelledby="mood-title" aria-live="polite" hidden>
 
     <div class="popup-icon">🤪</div>
 
@@ -69,7 +42,7 @@
 </section>
 
 
-<section class="song" aria-labelledby="song-title">
+<section class="song" aria-labelledby="song-title" hidden>
 
     <h2 id="song-title">🎶 Your PERFECTLY WRONG Song</h2>
 
