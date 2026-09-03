@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Thalathiri 🎵</title>
+    <title>SoulSonic 🎵</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
 </head>
 
 <body>
@@ -36,7 +37,7 @@
     </div>
 
     <main class="container">
-        <h1>🎵 THALATHIRI 🎵</h1>
+        <h1>🎵 SOULSONIC 🎵</h1>
         <p class="subtitle">Perfect song for your perfect mood 😂</p>
 
         <section class="camera-section" aria-labelledby="camera-title">
@@ -45,14 +46,14 @@
                 <video id="camera" autoplay playsinline></video>
             </div>
             <button id="startCamera" type="button">Start Camera</button>
-            <button id="detectMood" type="button" disabled>Detect Mood</button>
+            <button id="detectMood" type="button" disabled>Loading mood detector...</button>
         </section>
 
         <section class="result" aria-labelledby="mood-title" aria-live="polite" hidden>
 
     <div class="popup-icon">🤪</div>
 
-    <h2 id="mood-title">THALATHIRI DECIDED!</h2>
+    <h2 id="mood-title">SOULSONIC DECIDED!</h2>
 
     <p>
         Detected mood:
@@ -65,15 +66,15 @@
 
 <section class="song" aria-labelledby="song-title" hidden>
 
-    <h2 id="song-title">🎶 Your PERFECTLY WRONG Song</h2>
+    <h2 id="song-title">🎶 Your Mood Song</h2>
 
     <p id="song">No song selected</p>
 
-    <div class="wrong-message">
-        ⚠️ This song is probably VERY wrong 😂
+    <div class="song-message">
+        🎧 Playing the song for your detected mood
     </div>
 
-    <audio id="musicPlayer" controls>
+    <audio id="musicPlayer" title="Recommended song" controls>
         Your browser does not support audio.
     </audio>
 
