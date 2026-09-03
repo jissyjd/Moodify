@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Thalathiri 🎵</title>
+    <title>Thalathiri Result</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,32 +16,23 @@
 
     <main class="container">
         <h1>🎵 THALATHIRI 🎵</h1>
-        <p class="subtitle">Perfect song for your perfect mood 😂</p>
-
-        <section class="camera-section" aria-labelledby="camera-title">
-            <h2 id="camera-title">📷 Camera</h2>
-            <div class="camera-box">
-                <video id="camera" autoplay playsinline></video>
-            </div>
-            <button id="startCamera" type="button">Start Camera</button>
-            <button id="detectMood" type="button">Detect Mood</button>
-        </section>
+        <p class="subtitle">Here is your wonderfully wrong result!</p>
 
         <section class="result" aria-labelledby="mood-title">
             <h2 id="mood-title">Detected mood</h2>
-            <p id="mood">Waiting...</p>
+            <p id="mood">Ready for detection</p>
         </section>
 
         <section class="song" aria-labelledby="song-title">
-            <h2 id="song-title">Song for you !</h2>
+            <h2 id="song-title">❌ Wrong song recommendation</h2>
             <p id="song">No song selected</p>
             <audio id="musicPlayer" controls>
                 Your browser does not support audio.
             </audio>
         </section>
-    </main>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <a class="back-button" href="{{ url_for('home') }}">Back to Camera</a>
+    </main>
 
 </body>
 </html>

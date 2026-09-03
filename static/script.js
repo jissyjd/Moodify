@@ -1,5 +1,6 @@
 const video = document.getElementById("camera");
 const startCamera = document.getElementById("startCamera");
+const detectMood = document.getElementById("detectMood");
 
 startCamera.addEventListener("click", async () => {
 
@@ -15,4 +16,8 @@ startCamera.addEventListener("click", async () => {
         console.error(error);
     }
 
+});
+
+detectMood.addEventListener("click", () => {
+    window.location.href = "/result";
 });
