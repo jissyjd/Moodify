@@ -90,13 +90,26 @@ loadMoodDetector().catch((error) => {
 });
 
 startCamera.addEventListener("click", async () => {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        alert("Camera access requires a secure browser connection such as localhost.");
+        return;
+    }
 
     try {
         const stream = await navigator.mediaDevices.getUserMedia({
-            video: true
+            video: {
+                facingMode: "user",
+                width: { ideal: 640 },
+                height: { ideal: 480 }
+            },
+            audio: false
         });
 
         video.srcObject = stream;
+        await new Promise((resolve) => {
+            video.addEventListener("loadedmetadata", resolve, { once: true });
+        });
+        await video.play();
         playIntroTune();
         cameraReady = true;
         if (detectorReady) {
@@ -105,7 +118,12 @@ startCamera.addEventListener("click", async () => {
         startCamera.hidden = true;
 
     } catch (error) {
-        alert("Camera access denied or unavailable.");
+        const message = error.name === "NotAllowedError"
+            ? "Camera permission was denied. Allow camera access and try again."
+            : error.name === "NotFoundError"
+                ? "No camera was found on this device."
+                : "Camera access is unavailable. Check your browser permissions.";
+        alert(message);
         console.error(error);
     }
 
