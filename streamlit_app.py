@@ -5,6 +5,7 @@ import streamlit as st
 
 ROOT = Path(__file__).parent
 AUDIO_DIR = ROOT / "static" / "audio"
+STYLE_PATH = ROOT / "static" / "style.css"
 
 MOOD_SONGS = {
     "Happy": ("😊 Arabic Kuthu - Beast", "happy.mp3"),
@@ -16,21 +17,37 @@ MOOD_SONGS = {
 
 st.set_page_config(page_title="Moodify", page_icon="🎵", layout="centered")
 
-st.title("🎵 MOODIFY 🎵")
-st.caption("Capture your face and choose the mood that best matches your expression.")
+st.markdown(f"<style>{STYLE_PATH.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
+st.markdown(
+    """
+    <div class="container">
+        <h1>🎵 MOODIFY 🎵</h1>
+        <p class="subtitle">Perfect song for your perfect mood 😂</p>
+        <h2>📷 Camera</h2>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-camera_image = st.camera_input("📷 Camera")
+camera_image = st.camera_input("Capture your mood")
 
 if camera_image:
     st.image(camera_image, caption="Camera capture", use_container_width=True)
     mood = st.selectbox("Detected mood", list(MOOD_SONGS))
 
-    if st.button("🎶 Play mood song", type="primary"):
+    if st.button("Detect Mood", type="primary"):
         title, filename = MOOD_SONGS[mood]
         audio_path = AUDIO_DIR / filename
-        st.success(f"Detected mood: {mood}")
-        st.subheader(title)
-
+        st.markdown(
+            f'<section class="result is-visible"><div class="popup-icon">🤪</div>'
+            f'<h2>MOODIFY DECIDED!</h2><p>Detected mood:</p><p id="mood">{mood}</p></section>',
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            f'<section class="song"><h2>🎶 Song for your mood</h2>'
+            f'<p id="song">{title}</p><p>🎧 Playing the song for your detected mood</p></section>',
+            unsafe_allow_html=True,
+        )
         if audio_path.exists():
             st.audio(audio_path.read_bytes(), format="audio/mpeg", autoplay=True)
         else:
