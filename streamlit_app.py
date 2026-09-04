@@ -8,11 +8,11 @@ AUDIO_DIR = ROOT / "static" / "audio"
 STYLE_PATH = ROOT / "static" / "style.css"
 
 MOOD_SONGS = {
-    "Happy": ("😊 Arabic Kuthu - Beast", "happy.mp3"),
-    "Sad": ("🌧️ Kanave Unai - Kannum Kannum Kollaiyadithaal", "sad.mp3"),
-    "Angry": ("🔥 Aaluma Doluma - Vedalam", "angry.mp3"),
-    "Romantic": ("❤️ Munbe Vaa - Sillunu Oru Kadhal", "romantic.mp3"),
-    "Tired": ("😴 Vaseegara - Minnale", "tired.mp3"),
+    "Happy": ("😊 HAPPYYYY", "happy.mp3"),
+    "Sad": ("🌧️ SAAADDDDD", "sad.mp3"),
+    "Angry": ("🔥 ANGRYYYYY", "angry.mp3"),
+    "Romantic": ("❤️ ROMANTIC", "romantic.mp3"),
+    "Tired": ("😴 TIREDDDDD", "tired.mp3"),
 }
 
 st.set_page_config(page_title="Moodify", page_icon="🎵", layout="centered")
