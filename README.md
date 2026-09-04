@@ -2,96 +2,66 @@
 
 
 
-# [Project Name] 🎯
+# Moodify 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
 
 
-### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+### One member
+- Jissy -LBS Institute of Technology for Women
 
 ### Project Description
-[2-3 lines about what your project does]
+Moodify is a fun mood-based music application that uses the camera to detect facial expressions and identify the user’s mood. It then recommends and plays a suitable South Indian song for that mood, creating a personalized music experience.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Choosing the right song for your mood can be difficult, especially when you want music that matches how you feel at the moment.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+Moodify uses the camera to detect facial expressions and identify the user’s mood. It then automatically recommends and plays a suitable South Indian song for that mood.
 
 ## Technical Details
-### Technologies/Components Used
-For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+Python for application logic
+Streamlit for the web interface and deployment
+HTML/CSS for the Moodify visual design
+JavaScript for the original camera and facial-expression detection flow
+MP3 audio files for mood-based music playback
+Streamlit Community Cloud for deployment
+Main Features:
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+Camera-based mood input
+Mood categories: Happy, Sad, Angry, Romantic, and Tired
+South Indian song recommendations
+Built-in audio player
+Animated result display
+Responsive glassmorphism-style interface
 
 ### Implementation
-For Software:
-# Installation
-[commands]
-
-# Run
-[commands]
+On STREAMLIT
+https://moodify-atrqn3v4ebhnduub4rbbmb.streamlit.app/
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1]
+<img width="1897" height="907" alt="Screenshot 2026-09-04 063812" src="https://github.com/user-attachments/assets/d77cefce-5df6-4707-b051-1a8588efa5e5" />
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2]
+<img width="1906" height="915" alt="Screenshot 2026-09-04 063827" src="https://github.com/user-attachments/assets/ca76dc2c-83a3-43ed-a415-36926e7ca9dc" />
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+![Screenshot3]
+<img width="1905" height="905" alt="Screenshot 2026-09-04 063801" src="https://github.com/user-attachments/assets/00302524-88b1-4622-aeab-b3772d426b24" />
 
-For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/file/d/1vMAA9eIimYNyIsA2nZE3q1oIHFnFEM0h/view?usp=sharing
 
-# Additional Demos
-[Add any extra demo materials/links]
 
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
