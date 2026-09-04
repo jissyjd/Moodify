@@ -21,20 +21,27 @@ Choosing the right song for your mood can be difficult, especially when you want
 Moodify uses the camera to detect facial expressions and identify the user’s mood. It then automatically recommends and plays a suitable South Indian song for that mood.
 
 ## Technical Details
-Python for application logic
-Streamlit for the web interface and deployment
-HTML/CSS for the Moodify visual design
-JavaScript for the original camera and facial-expression detection flow
-MP3 audio files for mood-based music playback
-Streamlit Community Cloud for deployment
+--Python for application logic
+
+--Streamlit for the web interface and deployment
+
+--HTML/CSS for the Moodify visual design
+
+--JavaScript for the original camera and facial-expression detection flow
+
+--MP3 audio files for mood-based music playback
+
+--Streamlit Community Cloud for deployment
+
 Main Features:
 
-Camera-based mood input
-Mood categories: Happy, Sad, Angry, Romantic, and Tired
-South Indian song recommendations
-Built-in audio player
-Animated result display
-Responsive glassmorphism-style interface
+--Camera-based mood input
+
+--Mood categories: Happy, Sad, Angry, Romantic, and Tired
+
+--Built-in audio player
+
+--Responsive glassmorphism-style interface
 
 ### Implementation
 On STREAMLIT
