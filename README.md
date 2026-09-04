@@ -14,11 +14,11 @@
 ### Project Description
 Moodify is a fun mood-based music application that uses the camera to detect facial expressions and identify the user’s mood. It then recommends and plays a suitable South Indian song for that mood, creating a personalized music experience.
 
-### The Problem (that doesn't exist)
+### The Problem 
 Choosing the right song for your mood can be difficult, especially when you want music that matches how you feel at the moment.
 
-### The Solution (that nobody asked for)
-Moodify uses the camera to detect facial expressions and identify the user’s mood. It then automatically recommends and plays a suitable South Indian song for that mood.
+### The Solution 
+Moodify uses the camera to detect facial expressions and identify the user’s mood. It then it plays a song for that mood.
 
 ## Technical Details
 --Python for application logic
